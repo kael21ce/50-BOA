@@ -7,8 +7,12 @@ This is a MATLAB and R code for precise and efficient estimation of reversible e
 4. The package is tested on macOS M1.
 5. The package does not need any non-standard hardware.
 ## Installation guide
-1. The codes can be run directly without installation.
-2. No install time is needed.
+1. The MATLAB codes can be run directly without installation.
+2. The R codes requires additional package installation: readxl, ggplot2, and scales. Installation of these packages can be done by executing the following line:
+
+        install.packages(c('readxl', 'ggplot2', 'scales'))
+
+3. No install time is needed for MATLAB package. For R package, it can takes about 2 minutes to install additional packages.
 # Code description
 The computational package 50-BOA (IC_50-Based Optimal Approach) includes three MATLAB and R codes: two auxiliary functions, 'BOA_Condition' and 'CV_Inhibition', and a main function, 'Error_Landscape'.
 
