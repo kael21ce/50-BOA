@@ -45,5 +45,22 @@ The output includes the estimated inhibition constants with their 95% confidence
 
 # Test examples
 We provide two test example files, named as 'test_1.xlsx' and 'test_2.xlsx'.
-The first file
-The second file
+
+test_1 allows for precise estimation, while test_2 does not.
+
+For test_1, the output is the following:
+
+    >> Error_Landscape("test_1.xlsx")
+    The regularization constant is 756.46.
+    Kic: 0.0398, (0.0358, 0.0460)
+    Kiu: 0.0403, (0.0337, 0.0482)
+
+For test_2, the output is the following:
+
+    >> Error_Landscape("test_2.xlsx")
+    Estimation may be insufficient for precise results:
+    inhibitor concentration < IC50
+    Substrate concentration should vary
+    The regularization constant is 0.01.
+    Kic: 0.0367, (0.0244, 1592478110290.1743)
+    Kiu: 0.0766, (0.0208, 59985261653.5099)
