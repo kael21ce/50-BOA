@@ -1,1 +1,31 @@
 # 50-BOA (IC50-based optimal approach)
+This is a MATLAB and R code for precise and efficient estimation of reversible enzyme inhibition constants from initial velocity data.
+## System requirements
+1. The MATLAB package is based on MATLAB R2023a.
+2. The R package is based on R version 4.3.1.
+3. The test Excel file is based on version 16.89.
+4. The package is tested on macOS M1.
+5. The package does not need any non-standard hardware.
+## Installation guide
+1. The codes can be run directly without installation.
+2. No install time is needed.
+# Code description
+## 1. Generate the enzyme inhibition data file formatted by Excel
+To use 50-BOA package, users need to organize their initial velocity data obtained with an inhibitor in a defined format. The data should follow the format below:
+|Column 1|Column 2|Column 3|Column 4|
+|---|---|---|---|
+|$$V_{max}$$|$$K_{M}$$|$$IC_{50}$$|$$S_T$$ for estimating $$IC_{50}$$|
+|$$S_{T,1}$$|$$I_{T,1}$$|$$V_{0,1}$$|0|
+|...|...|...|...|
+|$$S_{T,n}$$|$$I_{T,n}$$|$$V_{0,n}$$|0|
+
+The first row should contain values for the maximal formation rate ($$V_{max}$$) and Michalis-Menten constant ($$K_M$$) of substrate, half maximal inhibitory concentration ($$IC_{50}$$), and substrate concentration ($$S_T$$) used for estimating $$IC_{50}$$, in that order.
+The subsequent rows should list the experimental setups and initial velocities obatined with following those setups.
+The first and second columns contain substrate ($$S_{T,1}$$, ..., $$S_{T,n}$$) and inhibitor ($$I_{T,1}$$, ..., $$I_{T,n}$$) concentrations, respectively.
+The third column lists the resulting initial velocitiy data ($$V_{0,1}$$, ..., $$V_{0,n}$$).
+The fourth column is a placeholder to match the size of the first row.
+## 2. Run the 'Error_Landscape.m' or 'Error_Landscape.R' file.
+# Test examples
+We provide two test example files, named as 'test_1.xlsx' and 'test_2.xlsx'.
+The first file
+The second file
