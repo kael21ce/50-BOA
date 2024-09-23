@@ -6,7 +6,7 @@ Error_Landscape <- function(file_name) {
   data <- as.matrix(data)
 
   # Set the heatmap color range
-  isMatched <- true
+  isMatched <- TRUE
   
   # 1. BOA_Condition
   source("BOA_Condition.R")
