@@ -4,6 +4,9 @@ Error_Landscape <- function(file_name) {
   data <- read_excel(file_name, col_names = c("A", "B", "C", "D"))
   names(data) <- NULL
   data <- as.matrix(data)
+
+  # Set the heatmap color range
+  isMatched <- true
   
   # 1. BOA_Condition
   source("BOA_Condition.R")
@@ -89,10 +92,19 @@ Error_Landscape <- function(file_name) {
   # Generate heatmap
   library(ggplot2)
   library(scales)
-  
-  ggplot(error_table, aes(x = log10(Kic), y = log10(Kiu), fill = Error)) +
+
+  if (isMatched) {
+    ggplot(error_table, aes(x = log10(Kic), y = log10(Kiu), fill = Error)) +
     geom_tile() +
     scale_fill_gradientn(colors = heat.colors(10), limits = c(min_error, 2 * min_error), oob = squish) +
     labs(x = expression(log[K[ic]]), y = expression(log[K[iu]]), fill = "Total error") +
     theme_minimal(base_size = 20)
+  } else {
+    ggplot(error_table, aes(x = log10(Kic), y = log10(Kiu), fill = Error)) +
+    geom_tile() +
+    scale_fill_gradientn(colors = heat.colors(10), limits = c(0, 0.05), oob = squish) +
+    labs(x = expression(log[K[ic]]), y = expression(log[K[iu]]), fill = "Total error") +
+    theme_minimal(base_size = 20)
+  }
+  
 }
