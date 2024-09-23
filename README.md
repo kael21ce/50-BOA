@@ -48,7 +48,7 @@ The output includes the estimated inhibition constants with their 95% confidence
 
 
 # Test examples
-We provide two test example files, named as 'test_1.xlsx' and 'test_2.xlsx'.
+We provide two test example files, 'test_1.xlsx' and 'test_2.xlsx'.
 
 test_1 allows for precise estimation, while test_2 does not.
 
@@ -68,3 +68,22 @@ For test_2, the output is the following:
     The regularization constant is 0.01.
     Kic: 0.0367, (0.0244, 1592478110290.1743)
     Kiu: 0.0766, (0.0208, 59985261653.5099)
+
+# Figures
+We provided initial velocity data for figures in folder 'Figure.'
+
+You can generate the figures by putting these data into this package.
+
+For Figure 2, 3 and Supplementary Figure 1, you should change the variable 'isMatched' into false in 'Error_Landscape'.
+
+MATLAB:
+
+        ...
+        isMatched = false;
+        ...
+
+R:
+
+        ...
+        isMatched = FALSE
+        ...
