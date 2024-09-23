@@ -2,6 +2,9 @@ function Error_Landscape(file_name)
 %% Load data
 data = readmatrix(file_name);
 
+%% Set the heatmap color range
+isMatched = true;
+
 %% 1. BOA_Condition
 BOA_Condition(file_name);
 
@@ -101,7 +104,11 @@ end
 %Draw heatmap
 h= heatmap(error_table,'Kic','Kiu','ColorVariable','Error');
 grid off
-h.ColorLimits = [min_error 2*min_error];
+if isMatched
+    h.ColorLimits = [min_error 2*min_error];
+else
+    h.ColorLimits = [0 0.05];
+end
 h.Colormap = hot;
 h.XDisplayLabels = CustomXLabels;
 h.YDisplayLabels = CustomYLabels;
