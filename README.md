@@ -72,7 +72,7 @@ For test_2, the output is the following:
 # Figures
 We provided initial velocity data for figures in folder 'Figure.'
 
-You can generate the figures by putting these data into this package.
+Users can generate the figures by putting these data into this package.
 
 For Figure 2, 3 and Supplementary Figure 1, you should change the variable 'isMatched' into false in 'Error_Landscape' to change the heatmap color range.
 
@@ -86,4 +86,20 @@ R:
 
         ...
         isMatched = FALSE
+        ...
+
+Users also choose whether regularization term is added or not by changing the variable 'isRegularized.'
+
+Changing 'isRegularized' into false means there is no regularization in fitting process:
+
+MATLAB:
+
+        ...
+        isRegularized = false;
+        ...
+
+R:
+
+        ...
+        isRegularized = FALSE
         ...
