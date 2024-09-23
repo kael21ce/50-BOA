@@ -7,6 +7,9 @@ Error_Landscape <- function(file_name) {
 
   # Set the heatmap color range
   isMatched <- TRUE
+
+  #Add regularization term
+  isRegularized <- TRUE;
   
   # 1. BOA_Condition
   source("BOA_Condition.R")
@@ -15,8 +18,12 @@ Error_Landscape <- function(file_name) {
   
   # 2. CV_Inhibition
   source("CV_Inhibition.R")
-  L <- 10^seq(-3, 3, length.out = 100)
-  lambda <- CV_Inhibition(file_name, L)
+  if (isRegularized) {
+    L <- 10^seq(-3, 3, length.out = 100)
+    lambda <- CV_Inhibition(file_name, L)
+  } else {
+    lambda <- 0
+  }
   cat(sprintf('The regularization constant is %.3f.\n', lambda))
   
   # 3. Estimate Kic and Kiu
