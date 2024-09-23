@@ -74,7 +74,7 @@ We provided initial velocity data for figures in folder 'Figure.'
 
 You can generate the figures by putting these data into this package.
 
-For Figure 2, 3 and Supplementary Figure 1, you should change the variable 'isMatched' into false in 'Error_Landscape'.
+For Figure 2, 3 and Supplementary Figure 1, you should change the variable 'isMatched' into false in 'Error_Landscape' to change the heatmap color range.
 
 MATLAB:
 
