@@ -5,13 +5,20 @@ data = readmatrix(file_name);
 %% Set the heatmap color range
 isMatched = true;
 
+%% Add regularization term
+isRegularized = true;
+
 %% 1. BOA_Condition
 BOA_Condition(file_name);
 
 %% 2. CV_Inhibition
 %Range of regularization constant
-L = logspace(-3,3,100);
-lambda = CV_Inhibition(file_name, L);
+if isRegularized {
+    L = logspace(-3,3,100);
+    lambda = CV_Inhibition(file_name, L);
+} else {
+    lambda = 0
+}
 fprintf('The regularization constant is %.2f.\n', lambda);
 
 %% 3. Estimate Kic and Kiu
